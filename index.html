@@ -3,40 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Raj Sahu!</title>
+<title>Happy Birthday Raj Sahu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
-    body{
-        margin:0;
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb);
-        font-family:Arial,sans-serif;
-        text-align:center;
-        color:white;
-    }
-    .card{
-        background:rgba(255,255,255,0.15);
-        padding:40px;
-        border-radius:20px;
-        backdrop-filter:blur(10px);
-    }
-    h1{
-        font-size:3em;
-        margin-bottom:10px;
-    }
-    p{
-        font-size:1.3em;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff4d6d,#ff758f,#ffb3c1);
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Poppins',sans-serif;
+}
+
+.gift-screen{
+text-align:center;
+color:white;
+}
+
+.gift-btn{
+padding:18px 40px;
+font-size:24px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#ff4d6d;
+font-weight:bold;
+box-shadow:0 0 20px rgba(255,255,255,.6);
+transition:.3s;
+}
+
+.gift-btn:hover{
+transform:scale(1.08);
+}
+
+.main-content{
+display:none;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:80px;
+text-shadow:0 0 20px white;
+}
+
+h2{
+font-size:35px;
+margin-top:10px;
+}
+
+.message{
+max-width:700px;
+margin:20px auto;
+font-size:22px;
+line-height:1.8;
+}
+
+.heart{
+position:absolute;
+font-size:30px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
 </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>🎂 Happy Birthday! 🎉</h1>
-        <p>Wishing you happiness, success, and lots of wonderful moments.</p>
-        <p><strong>Have an amazing year ahead!</strong></p>
-        <p>🎁 From: Shravan</p>
-    </div>
+
+<div class="gift-screen" id="gift">
+<h2>🎁 A Special Gift Is Waiting For You 🎁</h2>
+<br><br>
+<button class="gift-btn" onclick="openGift()">Open Your Gift</button>
+</div>
+
+<div class="main-content" id="birthday">
+<h1>Happy Birthday</h1>
+<h2>🎂 Raj Sahu 🎂</h2>
+
+<div class="message">
+May your birthday be filled with happiness, success, love, and unforgettable memories.
+<br><br>
+May all your dreams come true and may this year bring countless opportunities and blessings into your life.
+<br><br>
+✨ Wishing You a Wonderful Birthday and a Bright Future Ahead! ✨
+</div>
+</div>
+
+<script>
+function openGift(){
+
+document.getElementById("gift").style.display="none";
+document.getElementById("birthday").style.display="block";
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML=Math.random()>0.5?"💖":"🌹";
+
+heart.classList.add("heart");
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*3+3)+"s";
+
+heart.style.fontSize=
+(Math.random()*25+20)+"px";
+
+document.body.appendChild(heart);
+}
+}
+</script>
+
 </body>
 </html>

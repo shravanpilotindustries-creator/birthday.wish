@@ -1,142 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Raj Sahu</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-height:100vh;
-overflow:hidden;
-background:linear-gradient(135deg,#ff4d6d,#ff758f,#ffb3c1);
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:'Poppins',sans-serif;
-}
-
-.gift-screen{
-text-align:center;
-color:white;
-}
-
-.gift-btn{
-padding:18px 40px;
-font-size:24px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-background:white;
-color:#ff4d6d;
-font-weight:bold;
-box-shadow:0 0 20px rgba(255,255,255,.6);
-transition:.3s;
-}
-
-.gift-btn:hover{
-transform:scale(1.08);
-}
-
-.main-content{
-display:none;
-text-align:center;
-color:red;
-padding:20px;
-}
-
-h1{
-font-family:'Great Vibes',cursive;
-font-size:80px;
-text-shadow:0 0 20px white;
-}
-
-h2{
-font-size:35px;
-margin-top:10px;
-}
-
-.message{
-max-width:700px;
-margin:20px auto;
-font-size:22px;
-line-height:1.8;
-}
-
-.heart{
-position:absolute;
-font-size:30px;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{
-transform:translateY(100vh);
-opacity:1;
-}
-100%{
-transform:translateY(-100px);
-opacity:0;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff4d6d" />
+  <meta name="description" content="A special birthday celebration." />
+  <title>Happy Birthday, Raj Sahu 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <div id="loader" class="loader">
+    <div class="loader-card">
+      <div class="loader-gift">🎁</div>
+      <p>Preparing something special...</p>
+    </div>
+  </div>
 
-<div class="gift-screen" id="gift">
-<h2>🎁 A Special Gift Is Waiting For You 🎁</h2>
-<br><br>
-<button class="gift-btn" onclick="openGift()">Open Your Gift</button>
-</div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
-<div class="main-content" id="birthday">
-<h1>Happy Birthday</h1>
-<h2>🎂 Raj Sahu 🎂</h2>
+  <main>
+    <section id="welcome" class="screen active">
+      <div class="glass welcome-card">
+        <span class="eyebrow">A little surprise for you</span>
+        <div class="gift-illustration" aria-hidden="true">
+          <div class="gift-lid"></div>
+          <div class="gift-box"><span></span></div>
+        </div>
+        <h1>Someone special<br>has a gift for you</h1>
+        <p>Tap the button when you're ready to open it.</p>
+        <button id="openGift" class="primary-btn">Open Your Gift <span>→</span></button>
+      </div>
+    </section>
 
-<div class="message">
-May your birthday be filled with happiness, success, love, and unforgettable memories.
-<br><br>
-May all your dreams come true and may this year bring countless opportunities and blessings into your life.
-<br><br>
-✨ Wishing You a Wonderful Birthday and a Bright Future Ahead! ✨
-</div>
-</div>
+    <section id="birthday" class="hidden">
+      <nav class="topbar">
+        <div class="brand">For <span id="navName">Raj</span> ✨</div>
+        <button id="musicBtn" class="icon-btn" aria-label="Toggle background music">🔊</button>
+      </nav>
 
-<script>
-function openGift(){
+      <section class="hero section">
+        <div class="hero-content">
+          <span class="eyebrow">Today is all about you</span>
+          <h2>Happy Birthday</h2>
+          <h3 id="heroName">Raj Sahu</h3>
+          <p class="hero-copy">May this new chapter bring you bigger dreams, better memories, genuine happiness, and plenty of reasons to smile.</p>
+          <div class="hero-actions">
+            <button id="celebrateBtn" class="primary-btn">Celebrate! 🎉</button>
+            <a href="#message" class="secondary-btn">Read your message ↓</a>
+          </div>
+        </div>
+        <div class="birthday-orbit" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="cake">🎂</div>
+          <span class="orbit-item item-1">🎈</span>
+          <span class="orbit-item item-2">✨</span>
+          <span class="orbit-item item-3">💖</span>
+          <span class="orbit-item item-4">🌹</span>
+        </div>
+      </section>
 
-document.getElementById("gift").style.display="none";
-document.getElementById("birthday").style.display="block";
+      <section id="message" class="section narrow">
+        <div class="section-heading">
+          <span class="eyebrow">A message from the heart</span>
+          <h2>For you, on your special day</h2>
+        </div>
+        <article class="message-card glass">
+          <div class="quote-mark">“</div>
+          <p>May your birthday be filled with happiness, success, love, and unforgettable memories.</p>
+          <p>May all your dreams come true and may this year bring countless opportunities and blessings into your life.</p>
+          <p class="signature">Wishing you a wonderful birthday and a bright future ahead! ✨</p>
+        </article>
+      </section>
 
-for(let i=0;i<80;i++){
+      <section class="section">
+        <div class="section-heading">
+          <span class="eyebrow">The year ahead</span>
+          <h2>Three things I wish for you</h2>
+        </div>
+        <div class="wish-grid">
+          <article class="wish-card glass">
+            <div class="wish-icon">🚀</div>
+            <h3>Big Dreams</h3>
+            <p>Keep aiming higher. May your hard work turn ambitious plans into real achievements.</p>
+          </article>
+          <article class="wish-card glass">
+            <div class="wish-icon">❤️</div>
+            <h3>Good People</h3>
+            <p>May you always have people around you who make ordinary days memorable.</p>
+          </article>
+          <article class="wish-card glass">
+            <div class="wish-icon">🌟</div>
+            <h3>Great Memories</h3>
+            <p>More adventures, more laughter, and more moments you will want to remember.</p>
+          </article>
+        </div>
+      </section>
 
-let heart=document.createElement("div");
+      <section class="section timeline-section">
+        <div class="section-heading">
+          <span class="eyebrow">A simple reminder</span>
+          <h2>Make this year count</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item glass"><span>01</span><div><h3>Dream</h3><p>Decide what matters.</p></div></div>
+          <div class="timeline-item glass"><span>02</span><div><h3>Build</h3><p>Take small steps every day.</p></div></div>
+          <div class="timeline-item glass"><span>03</span><div><h3>Celebrate</h3><p>Don't forget to enjoy the journey.</p></div></div>
+        </div>
+      </section>
 
-heart.innerHTML=Math.random()>0.5?"💖":"🌹";
+      <section class="section final-section">
+        <div class="final-card">
+          <div class="fireworks">✨ 🎆 ✨</div>
+          <span class="eyebrow">One last thing...</span>
+          <h2>Have an unforgettable birthday, <span id="finalName">Raj</span>!</h2>
+          <p>Here's to another year of becoming the person you want to be.</p>
+          <button id="replayBtn" class="secondary-btn">Replay the surprise ↻</button>
+        </div>
+      </section>
 
-heart.classList.add("heart");
+      <footer>Made with ❤️ for a very special birthday.</footer>
+    </section>
+  </main>
 
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=
-(Math.random()*3+3)+"s";
-
-heart.style.fontSize=
-(Math.random()*25+20)+"px";
-
-document.body.appendChild(heart);
-}
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
